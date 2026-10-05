@@ -69,7 +69,7 @@ function ReportCard({ r }: { r: Report }) {
           <div>
             <h3 className="text-lg font-bold leading-tight">{r.extortionist_name}</h3>
             {r.organization && <p className="text-xs text-muted-foreground">{r.organization}</p>}
-            {r.landmark && <p className="mt-1 text-xs text-muted-foreground">📍 {r.landmark}</p>}
+            {r.landmark && <p className="mt-1 text-xs text-muted-foreground"><MapPin className="mr-1 inline h-3 w-3" />{r.landmark}</p>}
           </div>
           <span className="shrink-0 rounded-lg bg-accent px-3 py-1.5 text-sm font-bold text-accent-foreground">৳{bn(Number(r.amount))}</span>
         </div>
