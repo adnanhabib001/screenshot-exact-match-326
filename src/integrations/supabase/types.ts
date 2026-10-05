@@ -56,6 +56,7 @@ export type Database = {
           image_url: string | null
           landmark: string | null
           organization: string | null
+          status: string
           tracking_id: string
           upazila: string
           upvotes: number
@@ -72,6 +73,7 @@ export type Database = {
           image_url?: string | null
           landmark?: string | null
           organization?: string | null
+          status?: string
           tracking_id: string
           upazila: string
           upvotes?: number
@@ -88,6 +90,7 @@ export type Database = {
           image_url?: string | null
           landmark?: string | null
           organization?: string | null
+          status?: string
           tracking_id?: string
           upazila?: string
           upvotes?: number
