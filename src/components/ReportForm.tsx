@@ -31,7 +31,7 @@ export function ReportForm() {
     e.preventDefault();
     setError(null);
     const parsed = schema.safeParse({ ...f, amount: Number(f.amount), organization: f.organization || undefined, landmark: f.landmark || undefined });
-    if (!parsed.success) return setError(parsed.error.issues[0].message);
+    if (!parsed.success) return setError(parsed.error.issues[0]?.message ?? "ভুল তথ্য");
     if (file && (file.size > 5 * 1024 * 1024 || !file.type.startsWith("image/"))) return setError("ছবি ৫MB-এর কম হতে হবে");
     setBusy(true);
     let image_url: string | null = null;
@@ -49,8 +49,8 @@ export function ReportForm() {
     setFile(null);
   };
 
-  const districts = f.division ? Object.keys(LOCATIONS[f.division]) : [];
-  const upazilas = f.division && f.district ? LOCATIONS[f.division][f.district] : [];
+  const districts = f.division ? Object.keys(LOCATIONS[f.division] ?? {}) : [];
+  const upazilas = f.division && f.district ? (LOCATIONS[f.division]?.[f.district] ?? []) : [];
 
   return (
     <section id="report" className="mx-auto max-w-3xl px-4 py-16">

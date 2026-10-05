@@ -58,7 +58,7 @@ export function Leaderboard({ reports }: { reports: Report[] }) {
               <option value="">সব বিভাগ</option>{DIVISIONS.map((d) => <option key={d}>{d}</option>)}
             </select>
             <select className={sel} value={dist} disabled={!div} onChange={(e) => setDist(e.target.value)}>
-              <option value="">সব জেলা</option>{div && Object.keys(LOCATIONS[div]).map((d) => <option key={d}>{d}</option>)}
+              <option value="">সব জেলা</option>{div && Object.keys(LOCATIONS[div] ?? {}).map((d) => <option key={d}>{d}</option>)}
             </select>
           </div>
           <div className="mt-6 flex-1 space-y-4">
